@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: dstrk-api
+    runtime: docker
+    rootDir: server
+    plan: starter
+    healthCheckPath: /api/admin/me
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: FRONTEND_ORIGIN
+        sync: false
+      - key: SESSION_DAYS
+        value: 7
+    disk:
+      name: dstrk-data
+      mountPath: /app
+      sizeGB: 1
