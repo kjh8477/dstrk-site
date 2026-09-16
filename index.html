@@ -323,15 +323,7 @@ body.menu-open{overflow:hidden}
 <section class="shop" id="shop">
   <div class="section-top reveal"><h2>NEW ARRIVALS</h2><p>KEEP YOUR STYLE</p></div>
   <div class="grid">
-    <article class="product reveal" data-name="DSTRK HOODIE" data-price="139000" data-image="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=1200&q=85"><div class="thumb"><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=1200&q=85"><button class="quick">QUICK VIEW</button></div><div class="info"><span>DSTRK HOODIE</span><span class="price">₩139,000</span></div></article>
-    <article class="product reveal" data-name="DSTRK HOODIE" data-price="139000" data-image="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=1200&q=85"><div class="thumb"><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=1200&q=85"><button class="quick">QUICK VIEW</button></div><div class="info"><span>DSTRK HOODIE</span><span class="price">₩139,000</span></div></article>
-    <article class="product reveal" data-name="DSTRK HOODIE" data-price="139000" data-image="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=1200&q=85"><div class="thumb"><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=1200&q=85"><button class="quick">QUICK VIEW</button></div><div class="info"><span>DSTRK HOODIE</span><span class="price">₩139,000</span></div></article>
-    <article class="product reveal" data-name="DSTRK HOODIE" data-price="139000" data-image="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=1200&q=85"><div class="thumb"><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=1200&q=85"><button class="quick">QUICK VIEW</button></div><div class="info"><span>DSTRK HOODIE</span><span class="price">₩139,000</span></div></article>
-    <article class="product reveal" data-name="DSTRK HOODIE" data-price="139000" data-image="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=1200&q=85"><div class="thumb"><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=1200&q=85"><button class="quick">QUICK VIEW</button></div><div class="info"><span>DSTRK HOODIE</span><span class="price">₩139,000</span></div></article>
-    <article class="product reveal" data-name="DSTRK HOODIE" data-price="139000" data-image="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=1200&q=85"><div class="thumb"><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=1200&q=85"><button class="quick">QUICK VIEW</button></div><div class="info"><span>DSTRK HOODIE</span><span class="price">₩139,000</span></div></article>
-    <article class="product reveal" data-name="DSTRK HOODIE" data-price="139000" data-image="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=1200&q=85"><div class="thumb"><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=1200&q=85"><button class="quick">QUICK VIEW</button></div><div class="info"><span>DSTRK HOODIE</span><span class="price">₩139,000</span></div></article>
-    <article class="product reveal" data-name="DSTRK HOODIE" data-price="139000" data-image="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=1200&q=85"><div class="thumb"><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=1200&q=85"><button class="quick">QUICK VIEW</button></div><div class="info"><span>DSTRK HOODIE</span><span class="price">₩139,000</span></div></article>
-  </div>
+    <div id="dynamicProducts" style="display:contents"></div></div>
 </section>
 
 <section class="feature reveal">
@@ -360,10 +352,10 @@ body.menu-open{overflow:hidden}
 <div class="modal" id="productModal"><div class="detail"><button class="close" id="closeProduct">×</button><div class="detail-img"><img id="modalImg"></div><div class="detail-info"><div class="label">DSTRK / PRODUCT</div><h3 id="modalName"></h3><div class="detail-price" id="modalPrice"></div><p>DSTRK의 시그니처 후드티. 편안한 실루엣과 데일리로 활용하기 좋은 깔끔한 디자인을 담았습니다.</p><div class="label">SELECT SIZE</div><div class="sizes"><button class="size">S</button><button class="size active">M</button><button class="size">L</button><button class="size">XL</button></div><button class="add" id="addToCart">ADD TO CART</button><button class="buy-direct" id="buyNow">BUY NOW</button></div></div></div>
 
 
-<div class="modal" id="cartModal"><div class="cart-panel"><button class="close" id="closeCart">×</button><div class="label">YOUR DSTRK</div><h2>SHOPPING CART</h2><div id="cartItems"></div><div class="cart-footer" id="cartFooter" style="display:none"><div class="sum" id="cartLaunchDiscountRow" style="display:none"><span>LAUNCH EVENT</span><span id="cartLaunchDiscount">-₩30,000</span></div><div class="cart-total"><span>TOTAL</span><span id="cartTotal">₩0</span></div><button class="cart-checkout" id="cartCheckout">CHECKOUT</button></div></div></div>
+<div class="modal" id="cartModal"><div class="cart-panel"><button class="close" id="closeCart">×</button><div class="label">YOUR DSTRK</div><h2>SHOPPING CART</h2><div id="cartItems"></div><div class="cart-footer" id="cartFooter" style="display:none"><div class="cart-total"><span>TOTAL</span><span id="cartTotal">₩0</span></div><button class="cart-checkout" id="cartCheckout">CHECKOUT</button></div></div></div>
 <div class="toast" id="toast">ADDED TO CART</div>
 
-<div class="modal" id="checkoutModal"><div class="checkout"><div class="checkout-main" id="checkoutForm"><div class="checkout-logo">DSTRK</div><button class="back" id="backToProduct">← BACK</button><div class="label">CUSTOMER INFORMATION</div><h2>CHECKOUT</h2><div class="field"><label>EMAIL</label><input placeholder="you@email.com"></div><div class="field"><label>NAME</label><input placeholder="이름"></div><div class="field"><label>PHONE</label><input placeholder="010-0000-0000"></div><div class="label" style="margin-top:25px">DELIVERY</div><div class="field"><label>ADDRESS</label><input placeholder="배송 주소"></div><div class="row"><div class="field"><label>CITY</label><input placeholder="서울"></div><div class="field"><label>POSTAL CODE</label><input placeholder="우편번호"></div></div><div class="label" style="margin-top:18px">PAYMENT</div><div class="payment"><button class="active">CARD PAYMENT</button><button>KAKAO PAY</button><button>TOSS PAY</button></div></div><aside class="checkout-side" id="orderSummary"><div class="label">ORDER SUMMARY</div><div class="order" style="margin-top:20px"><img id="checkoutImg"><div><h4 id="checkoutName"></h4><p id="checkoutSize"></p><p id="checkoutPrice" style="margin-top:15px"></p></div></div><div class="coupon-box"><div class="coupon-label">DISCOUNT COUPON</div><div class="coupon-row"><input id="couponInput" type="text" placeholder="쿠폰 코드 입력" autocomplete="off" maxlength="30"><button id="applyCoupon" type="button">APPLY</button></div><p class="coupon-message" id="couponMessage" aria-live="polite"></p></div><div class="sum"><span>SUBTOTAL</span><span id="subtotal"></span></div><div class="sum discount-row" id="launchDiscountRow" style="display:none"><span>LAUNCH EVENT</span><span id="launchDiscountAmount">-₩30,000</span></div><div class="sum discount-row" id="discountRow" style="display:none"><span>COUPON (20%)</span><span id="discountAmount">-₩0</span></div><div class="sum"><span>DELIVERY</span><span>FREE</span></div><div class="sum total"><span>TOTAL</span><span id="total"></span></div><button class="pay" id="payNow">PAY NOW</button></aside><div class="success" id="success"><div class="checkout-logo">DSTRK</div><h2>THANK YOU.</h2><p>주문이 완료되었습니다.<br>KEEP YOUR STYLE.</p><button class="btn" style="margin-top:30px" onclick="location.reload()">BACK TO STORE</button></div></div></div>
+<div class="modal" id="checkoutModal"><div class="checkout"><div class="checkout-main" id="checkoutForm"><div class="checkout-logo">DSTRK</div><button class="back" id="backToProduct">← BACK</button><div class="label">CUSTOMER INFORMATION</div><h2>CHECKOUT</h2><div class="field"><label>EMAIL</label><input id="checkoutEmail" placeholder="you@email.com" required></div><div class="field"><label>NAME</label><input id="checkoutNameInput" placeholder="이름" required></div><div class="field"><label>PHONE</label><input id="checkoutPhone" placeholder="010-0000-0000"></div><div class="label" style="margin-top:25px">DELIVERY</div><div class="field"><label>ADDRESS</label><input id="checkoutAddress" placeholder="배송 주소" required></div><div class="row"><div class="field"><label>CITY</label><input id="checkoutCity" placeholder="서울"></div><div class="field"><label>POSTAL CODE</label><input id="checkoutPostal" placeholder="우편번호"></div></div><div class="label" style="margin-top:18px">PAYMENT</div><div class="payment"><button class="active">CARD PAYMENT</button><button>KAKAO PAY</button><button>TOSS PAY</button></div></div><aside class="checkout-side" id="orderSummary"><div class="label">ORDER SUMMARY</div><div class="order" style="margin-top:20px"><img id="checkoutImg"><div><h4 id="checkoutName"></h4><p id="checkoutSize"></p><p id="checkoutPrice" style="margin-top:15px"></p></div></div><div class="coupon-box"><div class="coupon-label">DISCOUNT COUPON</div><div class="coupon-row"><input id="couponInput" type="text" placeholder="쿠폰 코드 입력" autocomplete="off" maxlength="30"><button id="applyCoupon" type="button">APPLY</button></div><p class="coupon-message" id="couponMessage" aria-live="polite"></p></div><div class="sum"><span>SUBTOTAL</span><span id="subtotal"></span></div><div class="sum discount-row" id="discountRow" style="display:none"><span>COUPON</span><span id="discountAmount">-₩0</span></div><div class="sum discount-row" id="launchDiscountRow" style="display:none"><span>LAUNCH EVENT</span><span id="launchDiscountAmount">-₩0</span></div><div class="sum"><span>DELIVERY</span><span>FREE</span></div><div class="sum total"><span>TOTAL</span><span id="total"></span></div><button class="pay" id="payNow">PAY NOW</button></aside><div class="success" id="success"><div class="checkout-logo">DSTRK</div><h2>THANK YOU.</h2><p>주문이 완료되었습니다.<br>KEEP YOUR STYLE.</p><button class="btn" style="margin-top:30px" onclick="location.reload()">BACK TO STORE</button></div></div></div>
 
 
 <script>
@@ -405,9 +397,7 @@ const saveCart=()=>localStorage.setItem('dstrk-cart',JSON.stringify(cart));
 const cartText=document.getElementById('cartText');
 const cartItems=document.getElementById('cartItems');
 const cartTotal=document.getElementById('cartTotal');
-const cartLaunchDiscount=document.getElementById('cartLaunchDiscount');
 const cartFooter=document.getElementById('cartFooter');
-const cartLaunchDiscountRow=document.getElementById('cartLaunchDiscountRow');
 const cartModal=document.getElementById('cartModal');
 const toast=document.getElementById('toast');
 const productModal=document.getElementById('productModal');
@@ -425,12 +415,7 @@ function changeQty(index,delta){cart[index].qty+=delta;if(cart[index].qty<=0)car
 function renderCart(){
   if(!cart.length){cartItems.innerHTML='<div class="cart-empty">장바구니가 비어 있습니다.<br>KEEP YOUR STYLE.</div>';cartFooter.style.display='none';return}
   cartItems.innerHTML=cart.map((item,i)=>`<div class="cart-item"><img src="${item.image}" alt="${item.name}"><div><h4>${item.name}</h4><div class="cart-meta">SIZE ${item.size}</div><div class="qty"><button data-action="minus" data-i="${i}">−</button><span>${item.qty}</span><button data-action="plus" data-i="${i}">+</button></div></div><div style="text-align:right"><strong style="font-size:12px">${won(item.price*item.qty)}</strong><br><button class="remove" data-action="remove" data-i="${i}" style="margin-top:14px">REMOVE</button></div></div>`).join('');
-  cartFooter.style.display='block';
-  const cartSubtotal=cart.reduce((s,x)=>s+x.price*x.qty,0);
-  const launchDiscount=countCart()>=2?30000:0;
-  cartLaunchDiscountRow.style.display=launchDiscount?'flex':'none';
-  cartLaunchDiscount.textContent=launchDiscount?'-'+won(launchDiscount):'-₩0';
-  cartTotal.textContent=won(Math.max(0,cartSubtotal-launchDiscount));
+  cartFooter.style.display='block';cartTotal.textContent=won(cart.reduce((s,x)=>s+x.price*x.qty,0));
 }
 
 cartItems.addEventListener('click',e=>{const b=e.target.closest('button[data-action]');if(!b)return;const i=Number(b.dataset.i);if(b.dataset.action==='minus')changeQty(i,-1);if(b.dataset.action==='plus')changeQty(i,1);if(b.dataset.action==='remove'){cart.splice(i,1);saveCart();updateCartBadge();renderCart()}});
@@ -453,20 +438,14 @@ const applyCoupon=document.getElementById('applyCoupon');
 const couponMessage=document.getElementById('couponMessage');
 const discountRow=document.getElementById('discountRow');
 const discountAmount=document.getElementById('discountAmount');
-const launchDiscountRow=document.getElementById('launchDiscountRow');
-const launchDiscountAmount=document.getElementById('launchDiscountAmount');
 let checkoutSubtotal=0;
 let couponApplied=false;
 
 function updateCheckoutTotal(){
-  const launchDiscount=countCart()>=2?30000:0;
-  const couponDiscount=couponApplied?Math.round(checkoutSubtotal*0.20):0;
-  const totalDiscount=launchDiscount+couponDiscount;
-  launchDiscountAmount.textContent=launchDiscount?'-'+won(launchDiscount):'-₩0';
-  launchDiscountRow.style.display=launchDiscount?'flex':'none';
-  discountAmount.textContent=couponDiscount?'-'+won(couponDiscount):'-₩0';
+  const discount=couponApplied?Math.round(checkoutSubtotal*0.20):0;
+  discountAmount.textContent=discount?'-'+won(discount):'-₩0';
   discountRow.style.display=couponApplied?'flex':'none';
-  totalEl.textContent=won(Math.max(0,checkoutSubtotal-totalDiscount));
+  totalEl.textContent=won(checkoutSubtotal-discount);
 }
 function resetCoupon(){
   couponApplied=false;
@@ -518,6 +497,100 @@ updateCartBadge();renderCart();
   if(popup) popup.addEventListener('click',function(e){ if(e.target===popup) hide(); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape' && popup && !popup.hidden) hide(); });
   if(shop) shop.addEventListener('click',function(){ hide(); window.scrollTo({top:document.querySelector('#shop')?.offsetTop || 0, behavior:'smooth'}); });
+})();
+</script>
+
+<script>
+/* DSTRK LIVE CMS CONNECTION */
+(function(){
+  const API='https://admin-server-oj64.onrender.com';
+  const api=async(path,opt={})=>{const r=await fetch(API+path,{headers:{'Content-Type':'application/json'},...opt});const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error(d.error||'서버 요청에 실패했습니다.');return d};
+  const grid=document.querySelector('#shop .grid');
+  const popup=document.getElementById('launchPopup');
+  let products=[];
+  let serverCoupon=null;
+  let serverCouponDiscount=0;
+  let currentCheckoutItems=[];
+  const money=n=>'₩'+Number(n||0).toLocaleString('ko-KR');
+  const safe=s=>String(s??'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+
+  async function loadProducts(){
+    try{
+      products=await api('/api/products');
+      const target=document.getElementById('dynamicProducts');
+      if(!target)return;
+      target.innerHTML=products.map(p=>`<article class="product reveal" data-id="${p.id}"><div class="thumb"><img src="${safe(p.image_url||'https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=1200&q=85')}" alt="${safe(p.name)}"><button class="quick" type="button">QUICK VIEW</button></div><div class="info"><span>${safe(p.name)}</span><span class="price">${money(p.price)}</span></div></article>`).join('')||'<div class="muted">현재 판매 중인 상품이 없습니다.</div>';
+      target.querySelectorAll('.product').forEach(el=>el.addEventListener('click',()=>{
+        const p=products.find(x=>String(x.id)===el.dataset.id); if(!p)return;
+        selected={product_id:p.id,name:p.name,price:Number(p.price),image:p.image_url||'https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=1200&q=85',size:'M'};
+        modalImg.src=selected.image;modalName.textContent=selected.name;modalPrice.textContent=money(selected.price);
+        document.querySelectorAll('.size').forEach(x=>x.classList.toggle('active',x.textContent==='M'));
+        productModal.classList.add('open');
+      }));
+    }catch(e){console.warn('상품 CMS 연결 실패:',e);}
+  }
+
+  async function loadPopup(){
+    try{
+      const rows=await api('/api/popups/active');
+      if(!rows.length){ if(popup)popup.hidden=true; return; }
+      const p=rows[0];
+      const card=popup.querySelector('.launch-popup-card');
+      card.innerHTML=`<button class="launch-popup-close" id="livePopupClose" type="button" aria-label="팝업 닫기">×</button>${p.image_url?`<img src="${safe(p.image_url)}" style="width:100%;max-height:220px;object-fit:cover;margin-bottom:24px" onerror="this.style.display='none'">`:''}<div class="launch-popup-kicker">DSTRK BRAND</div><h2 class="launch-popup-title">${safe(p.title)}</h2><p class="launch-popup-offer">${safe(p.content).replace(/\n/g,'<br>')}</p><button class="launch-popup-button" id="livePopupButton" type="button">${safe(p.button_text||'SHOP NOW')}</button>`;
+      popup.hidden=false;
+      document.getElementById('livePopupClose').onclick=()=>popup.hidden=true;
+      document.getElementById('livePopupButton').onclick=()=>{popup.hidden=true; if((p.button_url||'#shop').startsWith('#')) document.querySelector(p.button_url||'#shop')?.scrollIntoView({behavior:'smooth'}); else location.href=p.button_url;};
+    }catch(e){console.warn('팝업 CMS 연결 실패:',e);}
+  }
+
+  function replaceButton(id){const old=document.getElementById(id);if(!old)return null;const n=old.cloneNode(true);old.replaceWith(n);return n;}
+  const couponBtn=replaceButton('applyCoupon');
+  if(couponBtn)couponBtn.onclick=async()=>{
+    const code=(document.getElementById('couponInput').value||'').trim().toUpperCase();
+    if(!code){serverCoupon=null;serverCouponDiscount=0;couponMessage.textContent='쿠폰 코드를 입력하세요.';couponMessage.className='coupon-message error';updateLiveTotal();return;}
+    try{
+      const email=(document.getElementById('checkoutEmail')?.value||'').trim();
+      const d=await api('/api/coupons/validate',{method:'POST',body:JSON.stringify({email,code,subtotal:checkoutSubtotal})});
+      serverCoupon=d.code;serverCouponDiscount=d.discount||0;
+      couponMessage.textContent=`쿠폰이 적용되었습니다. ${d.name||d.code}`;couponMessage.className='coupon-message success';updateLiveTotal();
+    }catch(e){serverCoupon=null;serverCouponDiscount=0;couponMessage.textContent=e.message;couponMessage.className='coupon-message error';updateLiveTotal();}
+  };
+  couponInput?.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();couponBtn?.click();}});
+
+  function updateLiveTotal(){
+    const qty=currentCheckoutItems.reduce((s,x)=>s+Number(x.qty||1),0);
+    const launch=qty>=2?30000:0;
+    const total=Math.max(0,checkoutSubtotal-launch-serverCouponDiscount);
+    const lr=document.getElementById('launchDiscountRow');
+    if(lr){lr.style.display=launch?'flex':'none';document.getElementById('launchDiscountAmount').textContent=launch?'-'+money(launch):'-₩0';}
+    discountRow.style.display=serverCouponDiscount?'flex':'none';
+    discountAmount.textContent=serverCouponDiscount?'-'+money(serverCouponDiscount):'-₩0';
+    totalEl.textContent=money(total);
+  }
+
+  window.openCheckout=function(items){
+    if(!items?.length)return;
+    currentCheckoutItems=items;
+    const first=items[0];checkoutImg.src=first.image;checkoutName.textContent=items.length===1?first.name:`${first.name} + ${items.length-1} ITEM(S)`;checkoutSize.textContent=items.length===1?'SIZE '+first.size:`${countCart()} ITEMS`;
+    checkoutSubtotal=items.reduce((s,x)=>s+Number(x.price)*Number(x.qty||1),0);checkoutPrice.textContent=money(checkoutSubtotal);subtotal.textContent=money(checkoutSubtotal);serverCoupon=null;serverCouponDiscount=0;couponInput.value='';couponMessage.textContent='';couponMessage.className='coupon-message';
+    checkoutForm.style.display='block';orderSummary.style.display='block';success.classList.remove('show');checkoutModal.classList.add('open');updateLiveTotal();
+  };
+  document.getElementById('cartCheckout').onclick=()=>{cartModal.classList.remove('open');window.openCheckout(cart.map(x=>({...x,product_id:x.product_id||products.find(p=>p.name===x.name)?.id})).filter(x=>x.product_id))};
+  document.getElementById('buyNow').onclick=()=>{productModal.classList.remove('open');window.openCheckout([{...selected,qty:1}])};
+  const pay=replaceButton('payNow');
+  if(pay)pay.onclick=async()=>{
+    try{
+      const email=document.getElementById('checkoutEmail').value.trim().toLowerCase(),name=document.getElementById('checkoutNameInput').value.trim(),phone=document.getElementById('checkoutPhone').value.trim(),address=document.getElementById('checkoutAddress').value.trim();
+      if(!email||!name||!address){alert('이메일, 이름, 배송 주소를 입력해주세요.');return;}
+      const items=currentCheckoutItems.map(x=>({product_id:x.product_id||products.find(p=>p.name===x.name)?.id,size:x.size,quantity:x.qty||1}));
+      if(items.some(x=>!x.product_id)){alert('상품 정보를 불러오지 못했습니다. 페이지를 새로고침해주세요.');return;}
+      const result=await api('/api/orders',{method:'POST',body:JSON.stringify({items,customer_email:email,customer_name:name,customer_phone:phone,shipping_address:address,coupon_code:serverCoupon||''})});
+      checkoutForm.style.display='none';orderSummary.style.display='none';success.classList.add('show');cart=[];saveCart();updateCartBadge();renderCart();
+      const msg=success.querySelector('p');if(msg)msg.innerHTML=`주문이 완료되었습니다.<br>주문번호 ${safe(result.order_no)}<br>KEEP YOUR STYLE.`;
+    }catch(e){alert(e.message);}
+  };
+  // 기존 데모 쿠폰/결제 핸들러를 실제 서버 연결로 교체
+  loadProducts();loadPopup();
 })();
 </script>
 </body>
