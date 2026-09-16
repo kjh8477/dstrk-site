@@ -285,7 +285,7 @@ body.menu-open{overflow:hidden}
     <div class="hero-actions"><a class="btn" href="#shop">SHOP NOW</a><a class="btn light" href="#about">OUR STORY</a></div>
   </div>
   <div class="hero-image">
-    <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1800&q=90" alt="DSTRK">
+    <img data-site-asset="HOME_HERO" src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1800&q=90" alt="DSTRK">
     <span class="hero-index">01 / 01</span>
   </div>
 </section>
@@ -305,15 +305,15 @@ body.menu-open{overflow:hidden}
 </section>
 
 <section class="feature reveal">
-  <div class="feature-image"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1600&q=85"></div>
+  <div class="feature-image"><img data-site-asset="HOME_FEATURE" src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1600&q=85"></div>
   <div class="feature-copy"><div class="eyebrow">DSTRK ESSENTIALS</div><h2>MADE FOR<br>YOUR DAY.</h2><p>특별한 날만을 위한 옷이 아닌, 당신의 모든 날을 위한 옷.</p><a class="btn" href="#shop">EXPLORE</a></div>
 </section>
 
 <section class="style-section" id="style">
   <div class="style-head reveal"><h2>KEEP YOUR<br>STYLE.</h2></div>
   <div class="style-grid">
-    <div class="style-card reveal"><img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1600&q=85"><span class="style-label">EVERYDAY / YOUR WAY</span></div>
-    <div class="style-card reveal"><img src="https://images.unsplash.com/photo-1506629905607-d405e7eb7e8a?auto=format&fit=crop&w=1200&q=85"><span class="style-label">DSTRK / SEOUL</span></div>
+    <div class="style-card reveal"><img data-site-asset="HOME_STYLE_1" src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1600&q=85"><span class="style-label">EVERYDAY / YOUR WAY</span></div>
+    <div class="style-card reveal"><img data-site-asset="HOME_STYLE_2" src="https://images.unsplash.com/photo-1506629905607-d405e7eb7e8a?auto=format&fit=crop&w=1200&q=85"><span class="style-label">DSTRK / SEOUL</span></div>
   </div>
 </section>
 
@@ -336,6 +336,10 @@ body.menu-open{overflow:hidden}
 <div class="modal" id="checkoutModal"><div class="checkout"><div class="checkout-main" id="checkoutForm"><div class="checkout-logo">DSTRK</div><button class="back" id="backToProduct">← BACK</button><div class="label">CUSTOMER INFORMATION</div><h2>CHECKOUT</h2><div class="field"><label>EMAIL</label><input id="checkoutEmail" placeholder="you@email.com" required></div><div class="field"><label>NAME</label><input id="checkoutNameInput" placeholder="이름" required></div><div class="field"><label>PHONE</label><input id="checkoutPhone" placeholder="010-0000-0000"></div><div class="label" style="margin-top:25px">DELIVERY</div><div class="field"><label>ADDRESS</label><input id="checkoutAddress" placeholder="배송 주소" required></div><div class="row"><div class="field"><label>CITY</label><input id="checkoutCity" placeholder="서울"></div><div class="field"><label>POSTAL CODE</label><input id="checkoutPostal" placeholder="우편번호"></div></div><div class="label" style="margin-top:18px">PAYMENT</div><div class="payment"><button class="active">CARD PAYMENT</button><button>KAKAO PAY</button><button>TOSS PAY</button></div></div><aside class="checkout-side" id="orderSummary"><div class="label">ORDER SUMMARY</div><div class="order" style="margin-top:20px"><img id="checkoutImg"><div><h4 id="checkoutName"></h4><p id="checkoutSize"></p><p id="checkoutPrice" style="margin-top:15px"></p></div></div><div class="coupon-box"><div class="coupon-label">DISCOUNT COUPON</div><div class="coupon-row"><input id="couponInput" type="text" placeholder="쿠폰 코드 입력" autocomplete="off" maxlength="30"><button id="applyCoupon" type="button">APPLY</button></div><p class="coupon-message" id="couponMessage" aria-live="polite"></p></div><div class="sum"><span>SUBTOTAL</span><span id="subtotal"></span></div><div class="sum discount-row" id="discountRow" style="display:none"><span>COUPON</span><span id="discountAmount">-₩0</span></div><div class="sum"><span>DELIVERY</span><span>FREE</span></div><div class="sum total"><span>TOTAL</span><span id="total"></span></div><button class="pay" id="payNow">PAY NOW</button></aside><div class="success" id="success"><div class="checkout-logo">DSTRK</div><h2>THANK YOU.</h2><p>주문이 완료되었습니다.<br>KEEP YOUR STYLE.</p><button class="btn" style="margin-top:30px" onclick="location.reload()">BACK TO STORE</button></div></div></div>
 
 
+
+<script>
+(async()=>{try{const r=await fetch('https://admin-server-oj64.onrender.com/api/site-assets',{cache:'no-store'});if(!r.ok)return;const a=await r.json();document.querySelectorAll('[data-site-asset]').forEach(i=>{const u=a[i.dataset.siteAsset];if(u)i.src=u;});}catch(e){}})();
+</script>
 <script>
 
 
