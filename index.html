@@ -337,6 +337,15 @@ body.menu-open{overflow:hidden}
 
 
 
+<div class="cms-popup" id="cmsPopup" aria-hidden="true"><div class="cms-popup-card" role="dialog" aria-modal="true" aria-labelledby="cmsPopupTitle"><button class="cms-popup-close" id="cmsPopupClose" aria-label="close">×</button><img id="cmsPopupImage" class="cms-popup-image" alt="" style="display:none"><div class="cms-popup-body"><div class="cms-popup-kicker">DSTRK / EVENT</div><h2 id="cmsPopupTitle"></h2><p id="cmsPopupContent"></p><a id="cmsPopupButton" class="cms-popup-button" href="#shop">SHOP NOW</a></div></div></div>
+<style>
+.cms-popup{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease,visibility .25s ease}.cms-popup.open{opacity:1;visibility:visible;pointer-events:auto}.cms-popup-card{position:relative;width:min(720px,92vw);max-height:90vh;overflow:auto;background:#fff;box-shadow:0 20px 70px rgba(0,0,0,.2)}.cms-popup-close{position:absolute;right:14px;top:10px;border:0;background:#fff;font-size:34px;line-height:1;cursor:pointer;z-index:2}.cms-popup-image{width:100%;max-height:48vh;object-fit:cover}.cms-popup-body{padding:34px}.cms-popup-kicker{font-size:11px;letter-spacing:.16em;margin-bottom:14px}.cms-popup-body h2{font-size:clamp(30px,5vw,58px);line-height:.95;margin:0 0 18px}.cms-popup-body p{font-size:16px;line-height:1.65;white-space:pre-line;margin:0 0 26px}.cms-popup-button{display:inline-block;background:#111;color:#fff;text-decoration:none;padding:15px 24px;font-size:12px;letter-spacing:.12em}.cms-popup-button:hover{opacity:.85}@media(max-width:600px){.cms-popup{padding:14px}.cms-popup-body{padding:25px}.cms-popup-image{max-height:40vh}}
+</style>
+<script>
+(async()=>{try{const r=await fetch('https://admin-server-oj64.onrender.com/api/popups/active',{cache:'no-store'});if(!r.ok)return;const rows=await r.json();const p=rows&&rows[0];if(!p)return;const popup=document.getElementById('cmsPopup');const title=document.getElementById('cmsPopupTitle');const content=document.getElementById('cmsPopupContent');const img=document.getElementById('cmsPopupImage');const btn=document.getElementById('cmsPopupButton');title.textContent=p.title||'';content.textContent=p.content||'';btn.textContent=p.button_text||'SHOP NOW';btn.href=p.button_url||'#shop';if(p.image_url){img.src=p.image_url;img.alt=p.title||'DSTRK';img.style.display='block';}const close=()=>{popup.classList.remove('open');popup.setAttribute('aria-hidden','true')};document.getElementById('cmsPopupClose').onclick=close;popup.addEventListener('click',e=>{if(e.target===popup)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});btn.addEventListener('click',e=>{if((btn.getAttribute('href')||'').startsWith('#')){e.preventDefault();close();document.querySelector(btn.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});}});requestAnimationFrame(()=>popup.classList.add('open'));popup.setAttribute('aria-hidden','false')}catch(e){console.warn('팝업 CMS 연결 실패:',e)}})();
+</script>
+
+
 <script>
 (async()=>{try{const r=await fetch('https://admin-server-oj64.onrender.com/api/site-assets',{cache:'no-store'});if(!r.ok)return;const a=await r.json();document.querySelectorAll('[data-site-asset]').forEach(i=>{const u=a[i.dataset.siteAsset];if(u)i.src=u;});}catch(e){}})();
 </script>
@@ -446,16 +455,9 @@ function openCheckout(items){
   checkoutForm.style.display='block';orderSummary.style.display='block';success.classList.remove('show');checkoutModal.classList.add('open');
 }
 applyCoupon.onclick=()=>{
-  const code=(couponInput.value||'').trim().toUpperCase();
-  if(code==='DSTRK'){
-    couponApplied=true;
-    couponMessage.textContent='쿠폰이 적용되었습니다. 20% 할인';
-    couponMessage.className='coupon-message success';
-  }else{
-    couponApplied=false;
-    couponMessage.textContent='유효하지 않은 쿠폰 코드입니다.';
-    couponMessage.className='coupon-message error';
-  }
+  couponApplied=false;
+  couponMessage.textContent='쿠폰 코드를 확인해주세요.';
+  couponMessage.className='coupon-message error';
   updateCheckoutTotal();
 };
 couponInput.addEventListener('keydown',e=>{if(e.key==='Enter')applyCoupon.click()});
