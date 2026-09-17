@@ -26,7 +26,7 @@ a{color:inherit;text-decoration:none}.nav{height:76px;display:grid;grid-template
       <div class="kicker">DSTRK ACCOUNT</div>
       <h1>WELCOME<br>BACK.</h1>
       <div class="field"><label>EMAIL</label><input type="email" id="email" required placeholder="you@email.com"></div>
-      <div class="field"><label>PASSWORD</label><input type="password" id="password" required minlength="8" placeholder="8자 이상"></div>
+      <div class="field"><label>PASSWORD</label><input type="password" id="password" required placeholder="••••••••"></div>
       <button class="login" type="submit">LOGIN</button>
       <div class="status" id="status"></div>
       <p class="note">현재는 브랜드 사이트 데모 로그인입니다. 입력한 이메일을 이 브라우저에 저장해 로그인 상태를 표시합니다.</p>
@@ -37,19 +37,13 @@ a{color:inherit;text-decoration:none}.nav{height:76px;display:grid;grid-template
 const form=document.getElementById('loginForm'), status=document.getElementById('status');
 const saved=localStorage.getItem('dstrk-user');
 if(saved){status.textContent=`${saved} 계정으로 로그인되어 있습니다.`;status.classList.add('show')}
-const API_BASE='https://admin-server-oj64.onrender.com';
-form.addEventListener('submit',async e=>{
+form.addEventListener('submit',e=>{
   e.preventDefault();
   const email=document.getElementById('email').value.trim();
-  const password=document.getElementById('password').value;
-  status.textContent='로그인 중...'; status.classList.add('show');
-  try{
-    const r=await fetch(API_BASE+'/api/customers/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,password})});
-    const d=await r.json(); if(!r.ok)throw new Error(d.error||'로그인에 실패했습니다.');
-    localStorage.setItem('dstrk-user',d.email);
-    status.textContent='로그인되었습니다. DSTRK로 돌아갑니다.';
-    setTimeout(()=>location.href='index.html',700);
-  }catch(err){status.textContent=err.message;}
+  localStorage.setItem('dstrk-user',email);
+  status.textContent='로그인되었습니다. DSTRK로 돌아갑니다.';
+  status.classList.add('show');
+  setTimeout(()=>location.href='index.html',700);
 });
 </script>
 </body>
