@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>LOGIN — DSTRK</title>
 <style>
-:root{--ink:#111;--line:#e8e8e8;--soft:#f6f6f4;--login-image:url(https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1400&q=85)}
+:root{--ink:#111;--line:#e8e8e8;--soft:#f6f6f4}
 *{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff}
 a{color:inherit;text-decoration:none}.nav{height:76px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 5%;border-bottom:1px solid var(--line)}
 .back,.shop{font-size:10px;letter-spacing:1.6px}.shop{justify-self:end}.brand{font-size:22px;font-weight:900;letter-spacing:7px}
 .wrap{min-height:calc(100svh - 76px);display:grid;grid-template-columns:1fr 1fr}
-.visual{background:linear-gradient(0deg,rgba(0,0,0,.25),rgba(0,0,0,.05)),var(--login-image) center/cover;min-height:600px}
+.visual{background:linear-gradient(0deg,rgba(0,0,0,.25),rgba(0,0,0,.05)),url('https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1400&q=85') center/cover;min-height:600px}
 .panel{padding:10vw;display:flex;align-items:center}.form{width:min(440px,100%)}.kicker{font-size:10px;letter-spacing:2px;color:#777}.form h1{font-size:clamp(50px,7vw,96px);letter-spacing:-.07em;line-height:.85;margin:24px 0 36px}
 .field{margin-bottom:16px}.field label{display:block;font-size:9px;letter-spacing:1.6px;color:#777;margin-bottom:8px}.field input{width:100%;border:0;border-bottom:1px solid #111;padding:13px 0;outline:0;font-size:14px}
 .login{width:100%;margin-top:24px;padding:18px;border:0;background:#111;color:#fff;font-size:10px;letter-spacing:2px;cursor:pointer}.note{font-size:11px;line-height:1.8;color:#777;margin-top:20px}.status{display:none;margin-top:18px;font-size:12px}.status.show{display:block}
@@ -26,7 +26,7 @@ a{color:inherit;text-decoration:none}.nav{height:76px;display:grid;grid-template
       <div class="kicker">DSTRK ACCOUNT</div>
       <h1>WELCOME<br>BACK.</h1>
       <div class="field"><label>EMAIL</label><input type="email" id="email" required placeholder="you@email.com"></div>
-      <div class="field"><label>PASSWORD</label><input type="password" id="password" required placeholder="••••••••"></div>
+      <div class="field"><label>PASSWORD</label><input type="password" id="password" required minlength="8" placeholder="8자 이상"></div>
       <button class="login" type="submit">LOGIN</button>
       <div class="status" id="status"></div>
       <p class="note">현재는 브랜드 사이트 데모 로그인입니다. 입력한 이메일을 이 브라우저에 저장해 로그인 상태를 표시합니다.</p>
@@ -37,16 +37,20 @@ a{color:inherit;text-decoration:none}.nav{height:76px;display:grid;grid-template
 const form=document.getElementById('loginForm'), status=document.getElementById('status');
 const saved=localStorage.getItem('dstrk-user');
 if(saved){status.textContent=`${saved} 계정으로 로그인되어 있습니다.`;status.classList.add('show')}
-form.addEventListener('submit',e=>{
+const API_BASE='https://admin-server-oj64.onrender.com';
+form.addEventListener('submit',async e=>{
   e.preventDefault();
   const email=document.getElementById('email').value.trim();
-  localStorage.setItem('dstrk-user',email);
-  status.textContent='로그인되었습니다. DSTRK로 돌아갑니다.';
-  status.classList.add('show');
-  setTimeout(()=>location.href='index.html',700);
+  const password=document.getElementById('password').value;
+  status.textContent='로그인 중...'; status.classList.add('show');
+  try{
+    const r=await fetch(API_BASE+'/api/customers/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,password})});
+    const d=await r.json(); if(!r.ok)throw new Error(d.error||'로그인에 실패했습니다.');
+    localStorage.setItem('dstrk-user',d.email);
+    status.textContent='로그인되었습니다. DSTRK로 돌아갑니다.';
+    setTimeout(()=>location.href='index.html',700);
+  }catch(err){status.textContent=err.message;}
 });
 </script>
-<script>
-(async()=>{try{const r=await fetch('https://admin-server-oj64.onrender.com/api/site-assets',{cache:'no-store'});if(!r.ok)return;const a=await r.json();if(a.LOGIN_VISUAL)document.documentElement.style.setProperty('--login-image',`url("${a.LOGIN_VISUAL.replace(/"/g,'\"')}")`);}catch(e){}})();
-</script></body>
+</body>
 </html>

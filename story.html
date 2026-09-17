@@ -10,11 +10,13 @@ footer{padding:38px 5%;border-top:1px solid var(--line);font-size:10px;letter-sp
 @media(max-width:760px){.nav{height:64px}.brand-logo img{height:36px;max-width:140px}.hero{padding:120px 7% 60px}.content{grid-template-columns:1fr;padding:80px 7%;gap:40px}.statement{padding:90px 7%}.grid{grid-template-columns:1fr;padding:0 7% 80px}.card{min-height:500px}.cta{padding:80px 7%;display:block}.cta p{margin-bottom:30px}.cart-link{font-size:9px}footer{flex-direction:column;gap:12px}}
 </style></head>
 <body>
-<nav class="nav"><a class="back" href="index.html">← BACK TO STORE</a><a class="brand-logo" href="index.html"><img src="dstrk-logo.png" alt="DSTRK"></a><a class="cart-link" href="index.html#shop">SHOP →</a></nav>
+<nav class="nav"><a class="back" href="index.html">← BACK TO STORE</a><a class="brand-logo" href="index.html"><img data-site-image="STORY" src="dstrk-logo.png" alt="DSTRK"></a><a class="cart-link" href="index.html#shop">SHOP →</a></nav>
 <section class="hero"><div class="kicker">DSTRK / OUR STORY</div><h1>KEEP<br>YOUR STYLE.</h1><p>DSTRK는 유행을 따라가기보다 자신만의 스타일을 오래 유지하는 사람들을 위한 브랜드입니다.</p></section>
 <section class="content"><h2>STYLE<br>OVER NOISE.</h2><div><p>우리는 옷이 당신을 대신해 말하기보다, 당신의 스타일을 자연스럽게 완성해야 한다고 생각합니다.</p><br><p>그래서 DSTRK는 매일 입기 좋은 편안함, 오래 봐도 질리지 않는 실루엣, 그리고 자신만의 방식으로 표현할 수 있는 여백을 중요하게 생각합니다.</p></div></section>
 <section class="statement">YOU DON'T NEED<br>TO FIT IN.<br>KEEP YOUR STYLE.</section>
 <section class="content"><h2>DSTRK<br>/ SEOUL</h2><div><p>서울의 빠른 움직임과 각자의 서로 다른 일상에서 영감을 받습니다. 특별한 하루만을 위한 옷이 아니라, 당신의 모든 날에 자연스럽게 남는 옷을 만듭니다.</p></div></section>
 <section class="cta"><div><div class="kicker">DSTRK COLLECTION</div><h2 style="font-size:clamp(42px,6vw,90px);letter-spacing:-.06em;line-height:.9">WEAR IT<br>YOUR WAY.</h2></div><a class="btn" href="index.html#shop">SHOP DSTRK</a></section>
 <footer><span>© 2026 DSTRK</span><span>KEEP YOUR STYLE</span></footer>
+
+<script>fetch('https://admin-server-oj64.onrender.com/api/site-images').then(r=>r.json()).then(m=>document.querySelectorAll('[data-site-image]').forEach(i=>{if(m[i.dataset.siteImage])i.src=m[i.dataset.siteImage]})).catch(()=>{});</script>
 </body></html>

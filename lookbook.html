@@ -10,18 +10,16 @@ footer{padding:38px 5%;border-top:1px solid var(--line);font-size:10px;letter-sp
 @media(max-width:760px){.nav{height:64px}.brand-logo img{height:36px;max-width:140px}.hero{padding:120px 7% 60px}.content{grid-template-columns:1fr;padding:80px 7%;gap:40px}.statement{padding:90px 7%}.grid{grid-template-columns:1fr;padding:0 7% 80px}.card{min-height:500px}.cta{padding:80px 7%;display:block}.cta p{margin-bottom:30px}.cart-link{font-size:9px}footer{flex-direction:column;gap:12px}}
 </style></head>
 <body>
-<nav class="nav"><a class="back" href="index.html">← BACK TO STORE</a><a class="brand-logo" href="index.html"><img src="dstrk-logo.png" alt="DSTRK"></a><a class="cart-link" href="index.html#shop">SHOP →</a></nav>
+<nav class="nav"><a class="back" href="index.html">← BACK TO STORE</a><a class="brand-logo" href="index.html"><img data-site-image="LOOKBOOK_1" src="dstrk-logo.png" alt="DSTRK"></a><a class="cart-link" href="index.html#shop">SHOP →</a></nav>
 <section class="hero"><div class="kicker">DSTRK / LOOKBOOK</div><h1>YOUR<br>WAY.</h1><p>같은 옷도 누가, 어떻게 입느냐에 따라 달라집니다. DSTRK의 룩북은 정답을 보여주기보다 당신만의 스타일을 위한 영감을 제안합니다.</p></section>
 <section class="grid">
-<div class="card"><img data-site-asset="LOOKBOOK_1" src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1600&q=85" alt="Look 01"><span class="caption">LOOK 01 / EVERYDAY</span></div>
-<div class="card"><img data-site-asset="LOOKBOOK_2" src="https://images.unsplash.com/photo-1506629905607-d405e7eb7e8a?auto=format&fit=crop&w=1600&q=85" alt="Look 02"><span class="caption">LOOK 02 / SEOUL</span></div>
-<div class="card"><img data-site-asset="LOOKBOOK_3" src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1600&q=85" alt="Look 03"><span class="caption">LOOK 03 / DSTRK</span></div>
-<div class="card"><img data-site-asset="LOOKBOOK_4" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1600&q=85" alt="Look 04"><span class="caption">LOOK 04 / YOUR STYLE</span></div>
+<div class="card"><img data-site-image="LOOKBOOK_2" src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1600&q=85" alt="Look 01"><span class="caption">LOOK 01 / EVERYDAY</span></div>
+<div class="card"><img data-site-image="LOOKBOOK_3" src="https://images.unsplash.com/photo-1506629905607-d405e7eb7e8a?auto=format&fit=crop&w=1600&q=85" alt="Look 02"><span class="caption">LOOK 02 / SEOUL</span></div>
+<div class="card"><img data-site-image="LOOKBOOK_4" src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1600&q=85" alt="Look 03"><span class="caption">LOOK 03 / DSTRK</span></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1600&q=85" alt="Look 04"><span class="caption">LOOK 04 / YOUR STYLE</span></div>
 </section>
 <section class="cta"><div><div class="kicker">DSTRK HOODIE</div><h2 style="font-size:clamp(42px,6vw,90px);letter-spacing:-.06em;line-height:.9">MAKE IT<br>YOURS.</h2></div><a class="btn" href="index.html#shop">SHOP NOW</a></section>
 <footer><span>© 2026 DSTRK</span><span>KEEP YOUR STYLE</span></footer>
 
-<script>
-(async()=>{try{const r=await fetch('https://admin-server-oj64.onrender.com/api/site-assets',{cache:'no-store'});if(!r.ok)return;const a=await r.json();document.querySelectorAll('[data-site-asset]').forEach(i=>{const u=a[i.dataset.siteAsset];if(u)i.src=u;});}catch(e){}})();
-</script>
+<script>fetch('https://admin-server-oj64.onrender.com/api/site-images').then(r=>r.json()).then(m=>document.querySelectorAll('[data-site-image]').forEach(i=>{if(m[i.dataset.siteImage])i.src=m[i.dataset.siteImage]})).catch(()=>{});</script>
 </body></html>
